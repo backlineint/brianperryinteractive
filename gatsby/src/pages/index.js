@@ -1,25 +1,51 @@
 import React from "react";
+import Link from "gatsby-link";
+import styled from "styled-components";
 
-export default () => (
+const PostWrapper = styled.div`
+  h3 {
+    margin-top: 0;
+  }
+`;
+
+export default ({ data }) => (
   <div>
-    <h1>Building Something from Nothing</h1>
-    <div>
-      <p>
-        This should be an actual post.
-      </p>
-      <blockquote>
-        <p>
-          There is indeed an element of luck, and no, there isn’t. The prepared
-          mind sooner or later finds something important and does it. So yes, it
-          is luck.{" "}
-          <em>
-            The particular thing you do is luck, but that you do something is
-            not.
-          </em>
-        </p>
-      </blockquote>
-    </div>
-    <p>Posted April 09, 2011</p>
+    <h4>{data.allMarkdownRemark.totalCount} Post</h4>
+    {data.allMarkdownRemark.edges.map(({ node }) => (
+      <PostWrapper key={node.id}>
+        <Link
+          to={node.fields.slug}
+          css={{ textDecoration: `none`, color: `inherit` }}
+        >
+          <h1>
+            {node.frontmatter.title}{" "}
+          </h1>
+          <h3>— {node.frontmatter.date}</h3>
+        </Link>
+        <div dangerouslySetInnerHTML={{ __html: node.html }} />
+      </PostWrapper>
+    ))}
 
   </div>
 );
+
+export const query = graphql`
+  query IndexQuery {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "MMMM DD, YYYY")
+          }
+          fields {
+            slug
+          }
+          html
+        }
+      }
+    }
+  }
+`

@@ -12,6 +12,8 @@
     "gatsby-link": "^1.6.32",
     "gatsby-plugin-styled-components": "^2.0.4",
     "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-source-filesystem": "^1.5.11",
+    "gatsby-transformer-remark": "^1.7.26",
     "styled-components": "^2.4.0",
     "typography-theme-twin-peaks": "^0.15.11"
   }

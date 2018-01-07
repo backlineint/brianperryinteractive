@@ -4,14 +4,15 @@ import Link from "gatsby-link";
 
 const MainWrapper = styled.div`
   margin: 0 auto;
-  padding: 0 1rem;
   max-width: 1000px;
 `;
 
 const Navigation  = styled.div`
+  padding: 0 .5rem 0 1rem;
   @media screen and (min-width: 40em) {
     position: fixed;
     width: 30%;
+    max-width: 300px;
   }
   h2 {
     margin-bottom: 0;
@@ -25,6 +26,7 @@ const Navigation  = styled.div`
 `;
 
 const Content = styled.div`
+  padding: 0 1rem 0 .5rem;
   @media screen and (min-width: 40em) {
     display: inline-block;
     margin-left: 30%;
@@ -32,11 +34,11 @@ const Content = styled.div`
   }
 `;
 
-export default ({ children }) => (
+export default ({ data, children }) => (
   <MainWrapper>
     <Navigation>
       <Link to="/">
-        <h2>Brian Perry</h2>
+        <h2>{data.site.siteMetadata.title}</h2>
       </Link>
       <p>Web Developer</p>
       <ul>
@@ -50,3 +52,13 @@ export default ({ children }) => (
     </Content>
   </MainWrapper>
 );
+
+export const query = graphql`
+  query AboutQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
