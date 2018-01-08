@@ -37,7 +37,7 @@ export default () => (
         <FaCode size={40} />
       </FactIcon>
       <FactText>
-        I work for HS2 solutions as an Interactive Developer. I love component based  development with Drupal, Pattern Lab and React.
+        I work for <a href="http://hs2solutions.com">HS2 solutions</a> as an Interactive Developer. I love component based  development with Drupal, Pattern Lab and React.
       </FactText>
     </Fact>
     <Fact>
@@ -53,7 +53,7 @@ export default () => (
         <FaMicrophone size={40} />
       </FactIcon>
       <FactText>
-        I performed comedy for years in the Boston area. I don't get on stage much anymore, but I'm still up for a good laugh.
+        <a href="http://improvboston.com">I performed comedy for years in the Boston area</a>. I don't get on stage much anymore, but I'm still up for a good laugh.
       </FactText>
     </Fact>
     <Fact>
