@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
+import { Helmet } from "react-helmet";
+import { FaTwitter, FaGithub, FaDrupal } from 'react-icons/lib/fa';
 
 const MainWrapper = styled.div`
   margin: 0 auto;
@@ -20,8 +22,17 @@ const Navigation  = styled.div`
   p {
     margin-bottom: .5rem;
   }
+  ul {
+    margin-bottom: 1rem;
+  }
   li {
     margin-bottom: .25rem;
+  }
+  .social {
+    a {
+     margin-right: .25rem;
+     background-image: none;
+    }
   }
 `;
 
@@ -36,6 +47,9 @@ const Content = styled.div`
 
 export default ({ data, children }) => (
   <MainWrapper>
+    <Helmet>
+      <title>Brian Perry - Web Developer</title>
+    </Helmet>
     <Navigation>
       <Link to="/">
         <h2>{data.site.siteMetadata.title}</h2>
@@ -43,9 +57,12 @@ export default ({ data, children }) => (
       <p>Web Developer</p>
       <ul>
         <li><Link to="about">About</Link></li>
-        <li><a href="https://github.com/backlineint" target="_blank">Github</a></li>
-        <li><a href="https://www.drupal.org/u/brianperry" target="_blank">Drupal.org</a></li>
       </ul>
+      <div className="social">
+        <a href="https://twitter.com/bricomedy" target="_blank"><FaTwitter size={35} /></a>
+        <a href="https://github.com/backlineint" target="_blank"><FaGithub size={35} /></a>
+        <a href="https://www.drupal.org/u/brianperry" target="_blank"><FaDrupal size={35} /></a>
+      </div>
     </Navigation>
     <Content>
       {children()}

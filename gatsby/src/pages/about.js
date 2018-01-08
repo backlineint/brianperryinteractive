@@ -1,10 +1,76 @@
 import React from "react";
+import { Helmet } from "react-helmet";
+import styled from "styled-components";
+import { FaGlobe, FaCode, FaHome, FaMicrophone, FaGamepad, FaMagic } from 'react-icons/lib/fa';
+
+const Fact = styled.div`
+  margin-bottom: 1rem;
+`;
+
+const FactIcon = styled.div`
+  width: 50px;
+  display: inline-block;
+  float: left;
+`;
+
+const FactText = styled.div`
+  margin-left: 60px;
+  font-size: 1.25rem;
+`;
 
 export default () => (
   <div>
+    <Helmet>
+      <title>About - Brian Perry</title>
+    </Helmet>
     <h1>What Exactly Do You Do Here?</h1>
-    <p>I live in the Chicago area, but was born and raised on the East Coast.</p>
-    <p>I work for HS2 solutions as an Interactive Developer.</p>
-    <p>A Third Thing.</p>
+    <Fact>
+      <FactIcon>
+        <FaGlobe size={40} />
+      </FactIcon>
+      <FactText>
+        I live in the Chicago area, but was born and raised on the East Coast.
+      </FactText>
+    </Fact>
+    <Fact>
+      <FactIcon>
+        <FaCode size={40} />
+      </FactIcon>
+      <FactText>
+        I work for HS2 solutions as an Interactive Developer. I love component based  development with Drupal, Pattern Lab and React.
+      </FactText>
+    </Fact>
+    <Fact>
+      <FactIcon>
+        <FaHome size={40} />
+      </FactIcon>
+      <FactText>
+        I live in a cozy (aka small) house with my wife, son, two cats, and (currently) two fish.
+      </FactText>
+    </Fact>
+    <Fact>
+      <FactIcon>
+        <FaMicrophone size={40} />
+      </FactIcon>
+      <FactText>
+        I performed comedy for years in the Boston area. I don't get on stage much anymore, but I'm still up for a good laugh.
+      </FactText>
+    </Fact>
+    <Fact>
+      <FactIcon>
+        <FaGamepad size={40} />
+      </FactIcon>
+      <FactText>
+        I love video games, and especially all things Nintendo. I'm glad that the Wii U era is behind us.
+      </FactText>
+    </Fact>
+    <Fact>
+      <FactIcon>
+        <FaMagic size={40} />
+      </FactIcon>
+      <FactText>
+        I sometimes use icons to spice up boring about pages on personal websites.
+      </FactText>
+    </Fact>
   </div>
 );
