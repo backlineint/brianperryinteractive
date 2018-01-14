@@ -1,0 +1,7 @@
+# Ignore all of Contenta's installed dependencies.
+
+bin
+vendor
+
+web/*
+!web/libraries/
