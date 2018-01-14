@@ -1,4 +1,15 @@
-# Contenta {json:api} - Demo
+# Contenta/Gatsby Installation Notes
+
+* Composer install.
+* Set up server instance. Note: Requires PHP 7
+* Copy config from install profile to staging config.
+* Install with demo content
+* Disable demo content
+* Add your content models and content.
+
+(Original readme content below)
+
+## Contenta {json:api} - Demo
 
 This repository is an example of how easily you can start a contenta project using [Circle CI](https://circleci.com) and [Pantheon](https://pantheon.io).
 

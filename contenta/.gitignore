@@ -2,6 +2,7 @@
 
 bin
 vendor
+keys
 
 web/*
 !web/libraries/

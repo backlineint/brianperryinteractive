@@ -10,6 +10,13 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://contenta-gatsby.dd:8083/`,
+        apiBase: `api`, // optional, defaults to `jsonapi`
+      },
+    },
     `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-typography`,
