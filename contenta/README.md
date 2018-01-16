@@ -5,7 +5,11 @@
 * Copy config from install profile to staging config.
 * Install with demo content
 * Disable demo content
-* Add your content models and content.
+* Configure and import sync config
+$config_directories = array(
+  'sync' => '../config/sync',
+);
+* Import DB export or add content.
 
 (Original readme content below)
 
