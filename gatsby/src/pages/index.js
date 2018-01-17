@@ -11,11 +11,13 @@ const PostWrapper = styled.div`
 export default ({ data }) => (
   <div>
     <h4>{data.allMarkdownRemark.totalCount} Post</h4>
+    <h4>All ({data.allNodePost.totalCount})</h4>
+    <h4>Posts ({data.posts.totalCount})</h4>
+    <h4>Links ({data.links.totalCount})</h4>
     {data.allMarkdownRemark.edges.map(({ node }) => (
       <PostWrapper key={node.id}>
         <Link
           to={node.fields.slug}
-          css={{ textDecoration: `none`, color: `inherit` }}
         >
           <h1>
             {node.frontmatter.title}{" "}
@@ -44,6 +46,44 @@ export const query = graphql`
             slug
           }
           html
+        }
+      }
+    }
+    allNodePost(sort: { fields: [created], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          title
+          body {
+            value
+          }
+          created
+        }
+      }
+    }
+    posts: allNodePost(sort: { fields: [created], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          title
+          body {
+            value
+          }
+          post_type
+          created
+        }
+      }
+    }
+    links: allNodePost(sort: { fields: [created], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          title
+          body {
+            value
+          }
+          post_type
+          created
         }
       }
     }
