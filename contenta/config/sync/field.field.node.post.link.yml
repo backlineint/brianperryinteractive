@@ -1,0 +1,19 @@
+uuid: 62d06e1a-95c2-4556-9d0e-fb0cac5e058a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.link
+    - node.type.post
+id: node.post.link
+field_name: link
+entity_type: node
+bundle: post
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

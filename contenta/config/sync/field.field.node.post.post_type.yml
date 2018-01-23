@@ -1,0 +1,21 @@
+uuid: f62a9c4b-9ae7-499b-86b0-377aa83172ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.post_type
+    - node.type.post
+  module:
+    - options
+id: node.post.post_type
+field_name: post_type
+entity_type: node
+bundle: post
+label: 'Post Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
