@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const PostWrapper = styled.div`
+const LinkWrapper = styled.div`
   h3 {
     margin-top: 0;
   }
@@ -19,18 +19,19 @@ export default ({ data }) => {
   };
   const formattedDate = date.toLocaleString('en-US', options);
   return (
-    <PostWrapper>
-      <h1>{post.title}</h1>
+    <LinkWrapper>
+      <h1><a href={post.link}>{post.title}</a></h1>
       <h3>— {formattedDate}</h3>
       <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
-    </PostWrapper>
+    </LinkWrapper>
   );
 };
 
 export const query = graphql`
-  query PostQuery($slug: String!) {
+  query LinkQuery($slug: String!) {
     nodePost(fields: { slug: { eq: $slug } }) {
       title
+      link
       body {
         value
       }

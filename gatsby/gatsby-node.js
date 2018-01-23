@@ -19,6 +19,11 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
       name: `slug`,
       value: slug,
     })
+    createNodeField({
+      node,
+      name: `type`,
+      value: node.post_type,
+    })
   }
 }
 
@@ -41,6 +46,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             node {
               fields {
                 slug
+                type
               }
             }
           }
@@ -59,13 +65,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         })
       })
       result.data.allNodePost.edges.forEach(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/post.js`),
-          context: {
-            slug: node.fields.slug,
-          },
-        })
+        if (node.fields.type === 'link') {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/link.js`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        }
+        else {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/post.js`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        }
       })
       resolve()
     })
