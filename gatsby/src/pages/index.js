@@ -1,33 +1,35 @@
 import React from "react";
-import Link from "gatsby-link";
 import styled from "styled-components";
 
-const PostWrapper = styled.div`
-  h3 {
-    margin-top: 0;
+import PostTeaser from '../components/PostTeaser';
+
+const Totals = styled.div`
+  margin-top: 2.25rem;
+  li {
+    float: left;
+    list-style-type: none;
+    margin-right: 1rem;
   }
 `;
 
 export default ({ data }) => (
   <div>
-    <h4>{data.allMarkdownRemark.totalCount} Post</h4>
-    <h4>All ({data.allNodePost.totalCount})</h4>
-    <h4>Posts ({data.posts.totalCount})</h4>
-    <h4>Links ({data.links.totalCount})</h4>
-    {data.allMarkdownRemark.edges.map(({ node }) => (
-      <PostWrapper key={node.id}>
-        <Link
-          to={node.fields.slug}
-        >
-          <h1>
-            {node.frontmatter.title}{" "}
-          </h1>
-          <h3>— {node.frontmatter.date}</h3>
-        </Link>
-        <div dangerouslySetInnerHTML={{ __html: node.html }} />
-      </PostWrapper>
+    <Totals>
+      <li>All ({data.allNodePost.totalCount})</li>
+      <li>Posts ({data.posts.totalCount})</li>
+      <li>Links ({data.links.totalCount})</li>
+    </Totals>
+    {data.allNodePost.edges.map(({ node }) => (
+      <PostTeaser
+        key={node.id}
+        slug={node.fields.slug}
+        title={node.title}
+        link={node.link}
+        date={node.created}
+        body={node.body.value}
+        postType={node.post_type}
+      />
     ))}
-
   </div>
 );
 
@@ -53,10 +55,16 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          id
           title
+          link
           body {
             value
           }
+          fields {
+            slug
+          }
+          post_type
           created
         }
       }
@@ -65,9 +73,13 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          id
           title
           body {
             value
+          }
+          fields {
+            slug
           }
           post_type
           created
@@ -78,9 +90,13 @@ export const query = graphql`
       totalCount
       edges {
         node {
+          id
           title
           body {
             value
+          }
+          fields {
+            slug
           }
           post_type
           created
