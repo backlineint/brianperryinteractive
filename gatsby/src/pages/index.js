@@ -53,7 +53,7 @@ export const query = graphql`
         }
       }
     }
-    posts: allNodePost(sort: { fields: [created], order: DESC }) {
+    posts: allNodePost(sort: { fields: [created], order: DESC }, filter: { post_type: { eq: "post" }}) {
       totalCount
       edges {
         node {
@@ -70,7 +70,7 @@ export const query = graphql`
         }
       }
     }
-    links: allNodePost(sort: { fields: [created], order: DESC }) {
+    links: allNodePost(sort: { fields: [created], order: DESC }, filter: { post_type: { eq: "link" }}) {
       totalCount
       edges {
         node {
