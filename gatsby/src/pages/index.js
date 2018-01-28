@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import PostTeaser from '../components/PostTeaser';
+import PostList from '../components/PostList';
 
 const Totals = styled.div`
   margin-top: 2.25rem;
@@ -9,29 +9,55 @@ const Totals = styled.div`
     float: left;
     list-style-type: none;
     margin-right: 1rem;
+    cursor: pointer;
   }
 `;
 
-export default ({ data }) => (
-  <div>
-    <Totals>
-      <li>All ({data.allNodePost.totalCount})</li>
-      <li>Posts ({data.posts.totalCount})</li>
-      <li>Links ({data.links.totalCount})</li>
-    </Totals>
-    {data.allNodePost.edges.map(({ node }) => (
-      <PostTeaser
-        key={node.id}
-        slug={node.fields.slug}
-        title={node.title}
-        link={node.link}
-        date={node.created}
-        body={node.body.value}
-        postType={node.post_type}
-      />
-    ))}
-  </div>
-);
+class IndexPage extends React.Component {
+  constructor() {
+    super();
+    const selectedPostType = 'all';
+    this.state = {
+      selectedPostType
+    };
+  }
+
+  selectPostType = (postType) => {
+    this.setState({
+      selectedPostType: postType
+    });
+  };
+
+  render() {
+    return(
+      <div>
+        <Totals>
+          <li
+            onClick={() => this.selectPostType('all')}
+          >
+            All ({this.props.data.allNodePost.totalCount})
+          </li>
+          <li
+            onClick={() => this.selectPostType('posts')}
+          >
+            Posts ({this.props.data.posts.totalCount})
+          </li>
+          <li
+            onClick={() => this.selectPostType('links')}
+          >
+            Links ({this.props.data.links.totalCount})
+          </li>
+        </Totals>
+        <PostList
+          data={this.props.data}
+          postType={this.state.selectedPostType}
+        />
+      </div>
+    );
+  }
+}
+
+export default IndexPage;
 
 export const query = graphql`
   query IndexQuery {
