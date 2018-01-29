@@ -7,7 +7,6 @@ const LinkWrapper = styled.div`
   background-color: rgba(255, 255, 255, .4);
   padding: 1rem;
   margin-bottom: 2rem;
-  border-radius: 15px;
   h1 {
     margin-top: .5rem;
   }
