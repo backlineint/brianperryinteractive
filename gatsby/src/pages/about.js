@@ -3,6 +3,16 @@ import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { FaGlobe, FaCode, FaHome, FaMicrophone, FaGamepad, FaMagic } from 'react-icons/lib/fa';
 
+const About = styled.div`
+  background-color: rgba(255, 255, 255, .4);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  h1 {
+    margin-top: .5rem;
+  }
+`;
+
 const Fact = styled.div`
   margin-bottom: 1rem;
 `;
@@ -19,7 +29,7 @@ const FactText = styled.div`
 `;
 
 export default () => (
-  <div>
+  <About>
     <Helmet>
       <title>About - Brian Perry</title>
     </Helmet>
@@ -72,5 +82,5 @@ export default () => (
         I sometimes use icons to spice up boring about pages on personal websites.
       </FactText>
     </Fact>
-  </div>
+  </About>
 );

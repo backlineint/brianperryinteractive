@@ -4,11 +4,16 @@ import styled from "styled-components";
 import PostList from '../components/PostList';
 
 const Totals = styled.div`
-  margin-top: 2.25rem;
+  position: relative;
+  top: -.5rem;
+  @media screen and (min-width: 40em) {
+    top: 0;
+  }
   li {
     float: left;
-    list-style-type: none;
     margin-right: 1rem;
+    list-style-type: none;
+    color: hsla(0,0%,0%,0.5);
     cursor: pointer;
   }
 `;
@@ -102,6 +107,7 @@ export const query = graphql`
         node {
           id
           title
+          link
           body {
             value
           }

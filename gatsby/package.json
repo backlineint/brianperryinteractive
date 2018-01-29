@@ -20,6 +20,7 @@
     "react-icons": "^2.2.7",
     "slugify": "^1.2.9",
     "styled-components": "^2.4.0",
+    "typography-theme-stern-grove": "^0.15.10",
     "typography-theme-twin-peaks": "^0.15.11"
   }
 }

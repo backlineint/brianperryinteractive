@@ -7,6 +7,13 @@ import {formatDate} from '../utils/date';
 
 const TeaserWrapper = styled.div`
   clear: both;
+  background-color: rgba(255, 255, 255, .4);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  h1 {
+    margin-top: .5rem;
+  }
   h3 {
     margin-top: 0;
   }
@@ -35,13 +42,13 @@ class PostTeaser extends React.Component {
     else {
       return(
         <TeaserWrapper>
-          <Link
-            to={this.props.slug}
-          >
-            <h1>
-              {this.props.title}
-            </h1>
-          </Link>
+          <h1>
+            <Link
+              to={this.props.slug}
+            >
+                {this.props.title}
+            </Link>
+          </h1>
           <h3>— {formattedDate}</h3>
           <div dangerouslySetInnerHTML={{__html: this.props.body}}/>
         </TeaserWrapper>
