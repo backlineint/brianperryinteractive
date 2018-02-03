@@ -56,6 +56,23 @@ class PostList extends React.Component {
         </div>
       );
     }
+    else if (this.props.postType === 'notes') {
+      return (
+        <div>
+          {this.props.data.notes.edges.map(({node}) => (
+            <PostTeaser
+              key={node.id}
+              slug={node.fields.slug}
+              title={node.title}
+              link={node.link}
+              date={node.created}
+              body={node.body.value}
+              postType={node.post_type}
+            />
+          ))}
+        </div>
+      );
+    }
   }
 }
 

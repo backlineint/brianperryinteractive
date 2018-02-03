@@ -46,6 +46,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             },
           })
         }
+        if (node.fields.type === 'note') {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/note.js`),
+            context: {
+              slug: node.fields.slug,
+            },
+          })
+        }
         else {
           createPage({
             path: node.fields.slug,

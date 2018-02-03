@@ -52,6 +52,11 @@ class IndexPage extends React.Component {
           >
             Links ({this.props.data.links.totalCount})
           </li>
+          <li
+            onClick={() => this.selectPostType('notes')}
+          >
+            Notes ({this.props.data.links.totalCount})
+          </li>
         </Totals>
         <PostList
           data={this.props.data}
@@ -108,6 +113,23 @@ export const query = graphql`
           id
           title
           link
+          body {
+            value
+          }
+          fields {
+            slug
+          }
+          post_type
+          created
+        }
+      }
+    }
+    notes: allNodePost(sort: { fields: [created], order: DESC }, filter: { post_type: { eq: "note" }}) {
+      totalCount
+      edges {
+        node {
+          id
+          title
           body {
             value
           }

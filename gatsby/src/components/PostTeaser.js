@@ -16,6 +16,9 @@ const TeaserWrapper = styled.div`
   h3 {
     margin-top: 0;
   }
+  h4 {
+    margin-top: 1rem;
+  }
 `;
 
 class PostTeaser extends React.Component {
@@ -27,7 +30,20 @@ class PostTeaser extends React.Component {
           <h1>
             <a href={this.props.link}>{this.props.title}</a>
           </h1>
-          <h3>— {formattedDate}</h3>
+          <h4>— {formattedDate}</h4>
+          <div dangerouslySetInnerHTML={{__html: this.props.body}}/>
+          <Link
+            to={this.props.slug}
+          >
+            Permalink
+          </Link>
+        </TeaserWrapper>
+      )
+    }
+    if (this.props.postType === 'note') {
+      return (
+        <TeaserWrapper key={this.props.id}>
+          <h4>— {formattedDate}</h4>
           <div dangerouslySetInnerHTML={{__html: this.props.body}}/>
           <Link
             to={this.props.slug}
