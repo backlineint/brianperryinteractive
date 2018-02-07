@@ -15,16 +15,32 @@ const NoteWrapper = styled.div`
   }
 `;
 
-export default ({ data }) => {
-  const post = data.nodePost;
-  const formattedDate = formatDate(post.created);
-  return (
-    <NoteWrapper>
-      <h4>— {formattedDate}</h4>
-      <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
-    </NoteWrapper>
-  );
-};
+class Note extends React.Component {
+  componentDidMount() {
+    setTimeout(function() {
+      if (
+        typeof twttr !== `undefined` &&
+        window.twttr.widgets &&
+        typeof window.twttr.widgets.load === `function`
+      ) {
+        window.twttr.widgets.load()
+      }
+    }, 0);
+  }
+
+  render() {
+    const post = this.props.data.nodePost;
+    const formattedDate = formatDate(post.created);
+    return (
+      <NoteWrapper>
+        <h4>— {formattedDate}</h4>
+        <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
+      </NoteWrapper>
+    );
+  }
+}
+
+export default Note;
 
 export const query = graphql`
   query NoteQuery($slug: String!) {
