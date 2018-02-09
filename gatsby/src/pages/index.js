@@ -34,6 +34,7 @@ class IndexPage extends React.Component {
   };
 
   componentDidMount() {
+    // Ensure that twitter embeds load (initial load)
     setTimeout(function() {
       if (
         typeof twttr !== `undefined` &&
@@ -46,6 +47,7 @@ class IndexPage extends React.Component {
   }
 
   componentDidUpdate() {
+    // Ensure that twitter embeds load (when switching post types.)
     setTimeout(function() {
       if (
         typeof twttr !== `undefined` &&

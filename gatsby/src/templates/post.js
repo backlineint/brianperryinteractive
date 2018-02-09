@@ -15,17 +15,34 @@ const PostWrapper = styled.div`
   }
 `;
 
-export default ({ data }) => {
-  const post = data.nodePost;
-  const formattedDate = formatDate(post.created);
-  return (
-    <PostWrapper>
-      <h1>{post.title}</h1>
-      <h3>— {formattedDate}</h3>
-      <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
-    </PostWrapper>
-  );
-};
+//export default ({ data }) => {
+class Post extends React.Component {
+  componentDidMount() {
+    // Ensure that twitter embeds load.
+    setTimeout(function() {
+      if (
+        typeof twttr !== `undefined` &&
+        window.twttr.widgets &&
+        typeof window.twttr.widgets.load === `function`
+      ) {
+        window.twttr.widgets.load()
+      }
+    }, 0);
+  }
+  render() {
+    const post = this.props.data.nodePost;
+    const formattedDate = formatDate(post.created);
+    return (
+      <PostWrapper>
+        <h1>{post.title}</h1>
+        <h3>— {formattedDate}</h3>
+        <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
+      </PostWrapper>
+    );
+  }
+}
+
+export default Post;
 
 export const query = graphql`
   query PostQuery($slug: String!) {

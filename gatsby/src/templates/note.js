@@ -17,6 +17,7 @@ const NoteWrapper = styled.div`
 
 class Note extends React.Component {
   componentDidMount() {
+    // Ensure that twitter embeds load.
     setTimeout(function() {
       if (
         typeof twttr !== `undefined` &&
