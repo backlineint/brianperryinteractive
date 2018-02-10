@@ -34,6 +34,7 @@ const AsideWrapper = styled.div`
 const Navigation  = styled.div`
   padding: 1rem;
   background-color: rgba(255, 255, 255, .7);
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
   h2 {
     margin-top: 0;
     margin-bottom: 0;

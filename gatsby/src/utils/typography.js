@@ -4,6 +4,8 @@ import Typography from 'typography'
 // Runner up was irving theme...
 import sternGroveTheme from 'typography-theme-stern-grove'
 
+sternGroveTheme.bodyColor = 'hsla(0,0%,0%,0.70)' // was 'hsla(0,0%,0%,0.87)'.
+
 sternGroveTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   'a:hover,a:active': {
     color: 'white',

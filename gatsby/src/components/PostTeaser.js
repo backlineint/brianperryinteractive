@@ -7,9 +7,10 @@ import {formatDate} from '../utils/date';
 
 const TeaserWrapper = styled.div`
   clear: both;
-  background-color: rgba(255, 255, 255, .4);
   padding: 1rem;
   margin-bottom: 2rem;
+  background-color: rgba(255, 255, 255, .4);
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
   h1 {
     margin-top: .5rem;
   }
