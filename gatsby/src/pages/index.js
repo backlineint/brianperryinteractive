@@ -11,10 +11,10 @@ const Totals = styled.div`
   }
   li {
     float: left;
-    margin: 0;
+    margin: 0 0 2rem 0;
     padding: .5rem;
     background-color: rgba(255, 255, 255, .4);
-    box-shadow: 0px -1px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
     list-style-type: none;
     font-family: 'Montserrat',sans-serif;
     color: hsla(0,0%,0%,0.5);
@@ -96,7 +96,7 @@ class IndexPage extends React.Component {
           <li
             onClick={() => this.selectPostType('notes')}
           >
-            Notes ({this.props.data.links.totalCount})
+            Notes ({this.props.data.notes.totalCount})
           </li>
         </Totals>
         <PostListWrapper>
