@@ -1,4 +1,5 @@
 import React from "react";
+import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import styled from "styled-components";
 
 import PostList from '../components/PostList';
@@ -15,6 +16,17 @@ const Totals = styled.div`
     list-style-type: none;
     color: hsla(0,0%,0%,0.5);
     cursor: pointer;
+  }
+`;
+
+const PostListWrapper = styled.div`
+  clear:both;
+  .post-list-enter {
+    transform: translateY(100%);
+    transition: .4s ease-out;
+    &.post-list-enter-active {
+      transform: translateY(0);
+    }
   }
 `;
 
@@ -84,10 +96,21 @@ class IndexPage extends React.Component {
             Notes ({this.props.data.links.totalCount})
           </li>
         </Totals>
-        <PostList
-          data={this.props.data}
-          postType={this.state.selectedPostType}
-        />
+        <PostListWrapper>
+          <CSSTransitionGroup
+            component="div"
+            transitionName="post-list"
+            transitionEnterTimeout={500}
+            transitionLeave={false}
+          >
+            <PostList
+              className="post-list"
+              key={this.state.selectedPostType}
+              data={this.props.data}
+              postType={this.state.selectedPostType}
+            />
+          </CSSTransitionGroup>
+        </PostListWrapper>
       </div>
     );
   }
