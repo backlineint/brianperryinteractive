@@ -6,14 +6,17 @@ import PostList from '../components/PostList';
 
 const Totals = styled.div`
   position: relative;
-  top: -.5rem;
   @media screen and (min-width: 40em) {
     top: 0;
   }
   li {
     float: left;
-    margin-right: 1rem;
+    margin: 0;
+    padding: .5rem;
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 0px -1px 2px 0px rgba(0,0,0,0.3);
     list-style-type: none;
+    font-family: 'Montserrat',sans-serif;
     color: hsla(0,0%,0%,0.5);
     cursor: pointer;
   }
@@ -22,10 +25,10 @@ const Totals = styled.div`
 const PostListWrapper = styled.div`
   clear:both;
   .post-list-enter {
-    transform: translateY(100%);
-    transition: .4s ease-out;
+    opacity: 0.01;
     &.post-list-enter-active {
-      transform: translateY(0);
+      opacity: 1;
+      transition: opacity 500ms ease-in;
     }
   }
 `;
