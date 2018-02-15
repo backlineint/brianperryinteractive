@@ -26,6 +26,14 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-twitter`
+    `gatsby-plugin-twitter`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-50610760-1",
+        // Puts tracking script in the head instead of the body
+        head: false,
+      },
+    },
   ],
 }
