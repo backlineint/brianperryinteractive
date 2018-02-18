@@ -4,14 +4,47 @@ import styled from "styled-components";
 
 import PostList from '../components/PostList';
 
-const Totals = styled.div`
-  position: relative;
-  @media screen and (min-width: 40em) {
-    top: 0;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+`;
+
+const PostListWrapper = styled.div`
+  padding: 0 1rem;
+  @media all and (max-width: 1024px) {
+   grid-column: 1 / span 4;
   }
+  @media all and (min-width: 1025px) {
+    grid-column: 1 / span 3;
+  }
+  .post-list-enter {
+    opacity: 0.01;
+    &.post-list-enter-active {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+    }
+  }
+`;
+
+const AsideWrapper = styled.div`
+  padding: 0 1rem .5rem 0;
+  @media all and (max-width: 1024px) {
+    grid-column: 1 / span 4;
+    order: -1;
+    padding-left: 1rem;
+  }
+  @media all and (min-width: 1025px) {
+    grid-column: span 1;
+    > div {
+      position: fixed;
+      width: calc(100%/5.4);
+      height: 100vh;
+    }
+  }
+`;
+
+const Totals = styled.div`
   li {
-    float: left;
-    margin: 0 0 2rem 0;
     padding: .5rem;
     background-color: rgba(255, 255, 255, .4);
     box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
@@ -19,17 +52,6 @@ const Totals = styled.div`
     font-family: 'Montserrat',sans-serif;
     color: hsla(0,0%,0%,0.5);
     cursor: pointer;
-  }
-`;
-
-const PostListWrapper = styled.div`
-  clear:both;
-  .post-list-enter {
-    opacity: 0.01;
-    &.post-list-enter-active {
-      opacity: 1;
-      transition: opacity 500ms ease-in;
-    }
   }
 `;
 
@@ -76,29 +98,7 @@ class IndexPage extends React.Component {
 
   render() {
     return(
-      <div>
-        <Totals>
-          <li
-            onClick={() => this.selectPostType('all')}
-          >
-            All ({this.props.data.allNodePost.totalCount})
-          </li>
-          <li
-            onClick={() => this.selectPostType('posts')}
-          >
-            Posts ({this.props.data.posts.totalCount})
-          </li>
-          <li
-            onClick={() => this.selectPostType('links')}
-          >
-            Links ({this.props.data.links.totalCount})
-          </li>
-          <li
-            onClick={() => this.selectPostType('notes')}
-          >
-            Notes ({this.props.data.notes.totalCount})
-          </li>
-        </Totals>
+      <Grid>
         <PostListWrapper>
           <CSSTransitionGroup
             component="div"
@@ -114,7 +114,31 @@ class IndexPage extends React.Component {
             />
           </CSSTransitionGroup>
         </PostListWrapper>
-      </div>
+        <AsideWrapper>
+          <Totals>
+            <li
+              onClick={() => this.selectPostType('all')}
+            >
+              All ({this.props.data.allNodePost.totalCount})
+            </li>
+            <li
+              onClick={() => this.selectPostType('posts')}
+            >
+              Posts ({this.props.data.posts.totalCount})
+            </li>
+            <li
+              onClick={() => this.selectPostType('links')}
+            >
+              Links ({this.props.data.links.totalCount})
+            </li>
+            <li
+              onClick={() => this.selectPostType('notes')}
+            >
+              Notes ({this.props.data.notes.totalCount})
+            </li>
+          </Totals>
+        </AsideWrapper>
+      </Grid>
     );
   }
 }

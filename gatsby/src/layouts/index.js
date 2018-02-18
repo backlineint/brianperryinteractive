@@ -14,20 +14,25 @@ const Background = styled.div`
 `;
 
 const MainWrapper = styled.div`
-  margin: 0 auto;
   padding-top: 2.25rem;
   padding-bottom: .25rem;
-  max-width: 1000px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 `;
 
 const AsideWrapper = styled.div`
   padding: 0 1rem;
-  margin-bottom: 2rem;
-  @media screen and (min-width: 40em) {
-    width: 30%;
-    max-width: 300px;
-    padding: 0 .5rem 0 1rem;
-    position: fixed;
+  @media all and (max-width: 1024px) {
+    grid-column: 1 / span 5;
+  }
+  @media all and (min-width: 1025px) {
+    grid-column: span 1;
+    // Workaround for position fixed with css grid.
+    > div {
+      position: fixed;
+      width: calc(100%/5.4);
+      height: 100vh;
+    }
   }
 `;
 
@@ -63,12 +68,11 @@ const AsideBlock  = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 0 1rem;
-  @media screen and (min-width: 40em) {
-    display: inline-block;
-    margin-left: 30%;
-    width: 70%;
-    padding: 0 1rem 0 .5rem;
+  @media all and (max-width: 1024px) {
+   grid-column: 1 / span 5;
+  }
+  @media all and (min-width: 1025px) {
+    grid-column: 2 / span 4;
   }
 `;
 
@@ -79,26 +83,28 @@ export default ({ data, children }) => (
         <title>Brian Perry - Web Developer</title>
       </Helmet>
       <AsideWrapper>
-        <AsideBlock>
-          <Link to="/">
-            <h2>{data.site.siteMetadata.title}</h2>
-          </Link>
-          <p>Web Developer</p>
-          <ul>
-            <li><Link to="about">About</Link></li>
-          </ul>
-          <div className="social">
-            <a href="https://twitter.com/bricomedy" target="_blank"><FaTwitter size={35} /></a>
-            <a href="https://github.com/backlineint" target="_blank"><FaGithub size={35} /></a>
-            <a href="https://www.drupal.org/u/brianperry" target="_blank"><FaDrupal size={35} /></a>
-          </div>
-        </AsideBlock>
-        <AsideBlock>
-          <h3>Upcoming</h3>
-          <ul>
-            <li><a href="https://www.midcamp.org/">MidCamp</a>: March 8-11, 2018 (<a href="https://www.midcamp.org/topic/hot-jamstack-lessons-building-music-discovery-app-drupal-and-react">Presenting</a>)</li>
-          </ul>
-        </AsideBlock>
+        <div>
+          <AsideBlock>
+            <Link to="/">
+              <h2>{data.site.siteMetadata.title}</h2>
+            </Link>
+            <p>Web Developer</p>
+            <ul>
+              <li><Link to="about">About</Link></li>
+            </ul>
+            <div className="social">
+              <a href="https://twitter.com/bricomedy" target="_blank"><FaTwitter size={35} /></a>
+              <a href="https://github.com/backlineint" target="_blank"><FaGithub size={35} /></a>
+              <a href="https://www.drupal.org/u/brianperry" target="_blank"><FaDrupal size={35} /></a>
+            </div>
+          </AsideBlock>
+          <AsideBlock>
+            <h3>Upcoming</h3>
+            <ul>
+              <li><a href="https://www.midcamp.org/">MidCamp</a>: March 8-11, 2018 (<a href="https://www.midcamp.org/topic/hot-jamstack-lessons-building-music-discovery-app-drupal-and-react">Presenting</a>)</li>
+            </ul>
+          </AsideBlock>
+        </div>
       </AsideWrapper>
       <Content>
         {children()}
