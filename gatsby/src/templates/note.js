@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import {formatDate} from '../utils/date';
 
+import ContentGrid from '../components/ContentGrid';
+import ContentGridMain from '../components/ContentGridMain';
+
 const NoteWrapper = styled.div`
   background-color: rgba(255, 255, 255, .4);
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
@@ -34,10 +37,14 @@ class Note extends React.Component {
     const post = this.props.data.nodePost;
     const formattedDate = formatDate(post.created);
     return (
-      <NoteWrapper>
-        <h4>— {formattedDate}</h4>
-        <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
-      </NoteWrapper>
+      <ContentGrid>
+        <ContentGridMain>
+          <NoteWrapper>
+            <h4>— {formattedDate}</h4>
+            <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
+          </NoteWrapper>
+        </ContentGridMain>
+      </ContentGrid>
     );
   }
 }

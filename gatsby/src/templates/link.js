@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 import {formatDate} from '../utils/date';
 
+import ContentGrid from '../components/ContentGrid';
+import ContentGridMain from '../components/ContentGridMain';
+
 const LinkWrapper = styled.div`
   background-color: rgba(255, 255, 255, .4);
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.3);
@@ -20,11 +23,15 @@ export default ({ data }) => {
   const post = data.nodePost;
   const formattedDate = formatDate(post.created);
   return (
-    <LinkWrapper>
-      <h1><a href={post.link}>{post.title}</a></h1>
-      <h3>— {formattedDate}</h3>
-      <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
-    </LinkWrapper>
+    <ContentGrid>
+      <ContentGridMain>
+        <LinkWrapper>
+          <h1><a href={post.link}>{post.title}</a></h1>
+          <h3>— {formattedDate}</h3>
+          <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
+        </LinkWrapper>
+      </ContentGridMain>
+    </ContentGrid>
   );
 };
 
