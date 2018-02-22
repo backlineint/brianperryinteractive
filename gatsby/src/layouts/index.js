@@ -102,6 +102,7 @@ export default ({ data, children }) => (
             <h3>Upcoming</h3>
             <ul>
               <li><a href="https://www.midcamp.org/">MidCamp</a>: March 8-11, 2018 (<a href="https://www.midcamp.org/topic/hot-jamstack-lessons-building-music-discovery-app-drupal-and-react">Presenting</a>)</li>
+              <li><a href="https://events.drupal.org/nashville2018">DrupalCon Nashville</a>: April 9-13, 2018 (<a href="https://events.drupal.org/nashville2018/sessions/hot-jamstack-building-music-discovery-app-drupal-and-react">Presenting</a>)</li>
             </ul>
           </AsideBlock>
         </div>
