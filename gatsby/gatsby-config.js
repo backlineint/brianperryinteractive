@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://contenta-drupal.dd:8083/`,
+        baseUrl: `http://bpicontenta.backlineint.webfactional.com/`,
         apiBase: `api`, // optional, defaults to `jsonapi`
       },
     },
