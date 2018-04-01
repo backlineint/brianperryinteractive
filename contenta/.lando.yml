@@ -1,0 +1,4 @@
+name: bpi
+recipe: drupal8
+config:
+  webroot: web
