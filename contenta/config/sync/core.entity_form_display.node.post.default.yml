@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.post.body
+    - field.field.node.post.image
     - field.field.node.post.link
     - field.field.node.post.post_type
+    - image.style.thumbnail
     - node.type.post
   module:
+    - image
     - path
     - text
 id: node.post.default
@@ -30,6 +33,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  image:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   langcode:
     type: language_select
     weight: 1
@@ -38,7 +49,7 @@ content:
       include_locked: true
     third_party_settings: {  }
   link:
-    weight: 9
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -52,7 +63,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   post_type:
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_select
