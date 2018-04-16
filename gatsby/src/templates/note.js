@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Img from "gatsby-image";
 
 import {formatDate} from '../utils/date';
 
@@ -36,16 +37,31 @@ class Note extends React.Component {
   render() {
     const post = this.props.data.nodePost;
     const formattedDate = formatDate(post.created);
-    return (
-      <ContentGrid>
-        <ContentGridMain>
-          <NoteWrapper>
-            <h4>— {formattedDate}</h4>
-            <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
-          </NoteWrapper>
-        </ContentGridMain>
-      </ContentGrid>
-    );
+    if (post.relationships.image) {
+      return (
+        <ContentGrid>
+          <ContentGridMain>
+            <NoteWrapper>
+              <h4>— {formattedDate}</h4>
+              <Img resolutions={post.relationships.image.localFile.childImageSharp.resolutions}/>
+              <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
+            </NoteWrapper>
+          </ContentGridMain>
+        </ContentGrid>
+      );
+    }
+    else {
+      return (
+        <ContentGrid>
+          <ContentGridMain>
+            <NoteWrapper>
+              <h4>— {formattedDate}</h4>
+              <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
+            </NoteWrapper>
+          </ContentGridMain>
+        </ContentGrid>
+      );
+    }
   }
 }
 
@@ -58,6 +74,17 @@ export const query = graphql`
       link
       body {
         value
+      }
+      relationships {
+        image {
+          localFile {
+            childImageSharp {
+              resolutions(width: 500) {
+                ...GatsbyImageSharpResolutions
+              }
+            }
+          }
+        }
       }
       created
     }
