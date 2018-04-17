@@ -6,6 +6,7 @@ import {formatDate} from '../utils/date';
 
 import ContentGrid from '../components/ContentGrid';
 import ContentGridMain from '../components/ContentGridMain';
+import PostImage from '../components/PostImage';
 
 const NoteWrapper = styled.div`
   background-color: rgba(255, 255, 255, .4);
@@ -43,7 +44,7 @@ class Note extends React.Component {
           <ContentGridMain>
             <NoteWrapper>
               <h4>— {formattedDate}</h4>
-              <Img resolutions={post.relationships.image.localFile.childImageSharp.resolutions}/>
+              <PostImage sizes={post.relationships.image.localFile.childImageSharp.sizes}/>
               <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
             </NoteWrapper>
           </ContentGridMain>
@@ -79,8 +80,8 @@ export const query = graphql`
         image {
           localFile {
             childImageSharp {
-              resolutions(width: 500) {
-                ...GatsbyImageSharpResolutions
+              sizes(maxWidth: 1250) {
+                ...GatsbyImageSharpSizes
               }
             }
           }

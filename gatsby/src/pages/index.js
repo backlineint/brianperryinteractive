@@ -157,6 +157,17 @@ export const query = graphql`
           body {
             value
           }
+          relationships {
+            image {
+              localFile {
+                childImageSharp {
+                  sizes(maxWidth: 1250) {
+                    ...GatsbyImageSharpSizes
+                  }
+                }
+              }
+            }
+          }
           fields {
             slug
           }
@@ -208,6 +219,17 @@ export const query = graphql`
           title
           body {
             value
+          }
+          relationships {
+            image {
+              localFile {
+                childImageSharp {
+                  sizes(maxWidth: 1250) {
+                    ...GatsbyImageSharpSizes
+                  }
+                }
+              }
+            }
           }
           fields {
             slug

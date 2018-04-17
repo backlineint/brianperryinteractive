@@ -10,13 +10,7 @@ class PostList extends React.Component {
         <div>
           {this.props.data.allNodePost.edges.map(({node}) => (
             <PostTeaser
-              key={node.id}
-              slug={node.fields.slug}
-              title={node.title}
-              link={node.link}
-              date={node.created}
-              body={node.body.value}
-              postType={node.post_type}
+              node={node}
             />
           ))}
         </div>
@@ -27,13 +21,7 @@ class PostList extends React.Component {
         <div>
           {this.props.data.posts.edges.map(({node}) => (
             <PostTeaser
-              key={node.id}
-              slug={node.fields.slug}
-              title={node.title}
-              link={node.link}
-              date={node.created}
-              body={node.body.value}
-              postType={node.post_type}
+              node={node}
             />
           ))}
         </div>
@@ -44,13 +32,7 @@ class PostList extends React.Component {
         <div>
           {this.props.data.links.edges.map(({node}) => (
             <PostTeaser
-              key={node.id}
-              slug={node.fields.slug}
-              title={node.title}
-              link={node.link}
-              date={node.created}
-              body={node.body.value}
-              postType={node.post_type}
+              node={node}
             />
           ))}
         </div>
@@ -61,13 +43,7 @@ class PostList extends React.Component {
         <div>
           {this.props.data.notes.edges.map(({node}) => (
             <PostTeaser
-              key={node.id}
-              slug={node.fields.slug}
-              title={node.title}
-              link={node.link}
-              date={node.created}
-              body={node.body.value}
-              postType={node.post_type}
+              node={node}
             />
           ))}
         </div>

@@ -5,6 +5,8 @@ import Link from 'gatsby-link';
 
 import {formatDate} from '../utils/date';
 
+import PostImage from '../components/PostImage';
+
 const TeaserWrapper = styled.div`
   clear: both;
   padding: 1rem;
@@ -24,30 +26,36 @@ const TeaserWrapper = styled.div`
 
 class PostTeaser extends React.Component {
   render() {
-    const formattedDate = formatDate(this.props.date);
-    if (this.props.postType === 'link') {
+    const node = this.props.node;
+    const formattedDate = formatDate(node.created);
+    if (node.post_type === 'link') {
       return (
-        <TeaserWrapper key={this.props.id}>
+        <TeaserWrapper key={node.id}>
           <h1>
-            <a href={this.props.link}>{this.props.title}</a>
+            <a href={node.link}>{node.title}</a>
           </h1>
           <h4>— {formattedDate}</h4>
-          <div dangerouslySetInnerHTML={{__html: this.props.body}}/>
+          <div dangerouslySetInnerHTML={{__html: node.body.value}}/>
           <Link
-            to={this.props.slug}
+            to={node.fields.slug}
           >
             Permalink
           </Link>
         </TeaserWrapper>
       )
     }
-    if (this.props.postType === 'note') {
+    else if (this.props.node.post_type === 'note') {
       return (
-        <TeaserWrapper key={this.props.id}>
+        <TeaserWrapper key={node.id}>
           <h4>— {formattedDate}</h4>
-          <div dangerouslySetInnerHTML={{__html: this.props.body}}/>
+          {
+            node.relationships.image
+            ? <PostImage sizes={node.relationships.image.localFile.childImageSharp.sizes}/>
+            : null
+          }
+          <div dangerouslySetInnerHTML={{__html: node.body.value}}/>
           <Link
-            to={this.props.slug}
+            to={node.fields.slug}
           >
             Permalink
           </Link>
@@ -60,13 +68,13 @@ class PostTeaser extends React.Component {
         <TeaserWrapper>
           <h1>
             <Link
-              to={this.props.slug}
+              to={node.fields.slug}
             >
-                {this.props.title}
+                {node.title}
             </Link>
           </h1>
           <h3>— {formattedDate}</h3>
-          <div dangerouslySetInnerHTML={{__html: this.props.body}}/>
+          <div dangerouslySetInnerHTML={{__html: node.body.value}}/>
         </TeaserWrapper>
       )
     }
@@ -74,12 +82,7 @@ class PostTeaser extends React.Component {
 }
 
 PostTeaser.propTypes = {
-  slug: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  link: PropTypes.string,
-  date: PropTypes.number.isRequired,
-  body: PropTypes.string.isRequired,
-  postType: PropTypes.string.isRequired
+  node: PropTypes.object.isRequired
 };
 
 export default PostTeaser;
