@@ -2,3 +2,6 @@ name: bpi
 recipe: drupal8
 config:
   webroot: web
+services:
+  database:
+    type: mysql:5.7
