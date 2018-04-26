@@ -74,6 +74,11 @@ class PostTeaser extends React.Component {
             </Link>
           </h1>
           <h3>— {formattedDate}</h3>
+          {
+            node.relationships.image
+              ? <PostImage sizes={node.relationships.image.localFile.childImageSharp.sizes}/>
+              : null
+          }
           <div dangerouslySetInnerHTML={{__html: node.body.value}}/>
         </TeaserWrapper>
       )

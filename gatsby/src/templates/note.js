@@ -38,31 +38,21 @@ class Note extends React.Component {
   render() {
     const post = this.props.data.nodePost;
     const formattedDate = formatDate(post.created);
-    if (post.relationships.image) {
-      return (
-        <ContentGrid>
-          <ContentGridMain>
-            <NoteWrapper>
-              <h4>— {formattedDate}</h4>
-              <PostImage sizes={post.relationships.image.localFile.childImageSharp.sizes}/>
-              <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
-            </NoteWrapper>
-          </ContentGridMain>
-        </ContentGrid>
-      );
-    }
-    else {
-      return (
-        <ContentGrid>
-          <ContentGridMain>
-            <NoteWrapper>
-              <h4>— {formattedDate}</h4>
-              <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
-            </NoteWrapper>
-          </ContentGridMain>
-        </ContentGrid>
-      );
-    }
+    return (
+      <ContentGrid>
+        <ContentGridMain>
+          <NoteWrapper>
+            <h4>— {formattedDate}</h4>
+            {
+              post.relationships.image
+                ? <PostImage sizes={post.relationships.image.localFile.childImageSharp.sizes}/>
+                : null
+            }
+            <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
+          </NoteWrapper>
+        </ContentGridMain>
+      </ContentGrid>
+    );
   }
 }
 

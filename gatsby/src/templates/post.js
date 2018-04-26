@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PostImage from '../components/PostImage';
 
 import {formatDate} from '../utils/date';
 
@@ -41,6 +42,11 @@ class Post extends React.Component {
           <PostWrapper>
             <h1>{post.title}</h1>
             <h3>— {formattedDate}</h3>
+            {
+              post.relationships.image
+                ? <PostImage sizes={post.relationships.image.localFile.childImageSharp.sizes}/>
+                : null
+            }
             <div dangerouslySetInnerHTML={{__html: post.body.value}}/>
           </PostWrapper>
         </ContentGridMain>
@@ -57,6 +63,17 @@ export const query = graphql`
       title
       body {
         value
+      }
+      relationships {
+        image {
+          localFile {
+            childImageSharp {
+              sizes(maxWidth: 1250) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        }
       }
       created
     }
