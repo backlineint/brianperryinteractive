@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 import Img from "gatsby-image";
 
 import {formatDate} from '../utils/date';
@@ -42,6 +43,9 @@ class Note extends React.Component {
       <ContentGrid>
         <ContentGridMain>
           <NoteWrapper>
+            <Helmet>
+              <title>{post.title} | Brian Perry</title>
+            </Helmet>
             <h4>— {formattedDate}</h4>
             {
               post.relationships.image

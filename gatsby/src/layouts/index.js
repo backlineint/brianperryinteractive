@@ -98,6 +98,12 @@ export default ({ data, children }) => (
               <a href="https://www.drupal.org/u/brianperry" target="_blank"><FaDrupal size={35} /></a>
             </div>
           </AsideBlock>
+          <AsideBlock>
+            <h3>Upcoming</h3>
+            <ul>
+              <li><a href="https://2018.texascamp.org/">Texas Camp</a>: May 31 - June 2, 2018 (<a href="https://2018.texascamp.org/sessions/component-based-theming-with-ui-patterns">Presenting</a>)</li>
+            </ul>
+          </AsideBlock>
         </div>
       </AsideWrapper>
       <Content>

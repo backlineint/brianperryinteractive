@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import PostImage from '../components/PostImage';
+import { Helmet } from "react-helmet";
 
 import {formatDate} from '../utils/date';
 
+import PostImage from '../components/PostImage';
 import ContentGrid from '../components/ContentGrid';
 import ContentGridMain from '../components/ContentGridMain';
 
@@ -40,6 +41,9 @@ class Post extends React.Component {
       <ContentGrid>
         <ContentGridMain>
           <PostWrapper>
+            <Helmet>
+              <title>{post.title} | Brian Perry</title>
+            </Helmet>
             <h1>{post.title}</h1>
             <h3>— {formattedDate}</h3>
             {

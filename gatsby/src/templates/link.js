@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 
 import {formatDate} from '../utils/date';
 
@@ -26,6 +27,9 @@ export default ({ data }) => {
     <ContentGrid>
       <ContentGridMain>
         <LinkWrapper>
+          <Helmet>
+            <title>{post.title} | Brian Perry</title>
+          </Helmet>
           <h1><a href={post.link}>{post.title}</a></h1>
           <h3>— {formattedDate}</h3>
           <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
