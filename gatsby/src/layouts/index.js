@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Link from "gatsby-link";
 import { Helmet } from "react-helmet";
-import { FaTwitter, FaGithub, FaDrupal } from 'react-icons/lib/fa';
+import { FaTwitter, FaGithub, FaDrupal,FaRssSquare } from 'react-icons/lib/fa';
 import background from '../assets/Sky-100-Vertices.jpeg';
 
 const Background = styled.div`
@@ -96,6 +96,7 @@ export default ({ data, children }) => (
               <a href="https://twitter.com/bricomedy" target="_blank"><FaTwitter size={35} /></a>
               <a href="https://github.com/backlineint" target="_blank"><FaGithub size={35} /></a>
               <a href="https://www.drupal.org/u/brianperry" target="_blank"><FaDrupal size={35} /></a>
+              <a href="http://brianperryinteractive.com/rss.xml" target="_blank"><FaRssSquare size={35} /></a>
             </div>
           </AsideBlock>
           <AsideBlock>
