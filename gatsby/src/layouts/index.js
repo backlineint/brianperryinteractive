@@ -84,7 +84,7 @@ export default ({ data, children }) => (
       </Helmet>
       <AsideWrapper>
         <div>
-          <AsideBlock>
+          <AsideBlock className="navigation">
             <Link to="/">
               <h2>{data.site.siteMetadata.title}</h2>
             </Link>
@@ -99,7 +99,7 @@ export default ({ data, children }) => (
               <a href="http://brianperryinteractive.com/rss.xml" target="_blank"><FaRssSquare size={35} /></a>
             </div>
           </AsideBlock>
-          <AsideBlock>
+          <AsideBlock className="upcoming">
             <h3>Upcoming</h3>
             <ul>
               <li><a href="https://2018.texascamp.org/">Texas Camp</a>: May 31 - June 2, 2018 (<a href="https://2018.texascamp.org/sessions/component-based-theming-with-ui-patterns">Presenting</a>)</li>
@@ -108,7 +108,7 @@ export default ({ data, children }) => (
           </AsideBlock>
         </div>
       </AsideWrapper>
-      <Content>
+      <Content className="content">
         {children()}
       </Content>
     </MainWrapper>

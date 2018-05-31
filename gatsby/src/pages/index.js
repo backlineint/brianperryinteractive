@@ -115,7 +115,7 @@ class IndexPage extends React.Component {
           </CSSTransitionGroup>
         </PostListWrapper>
         <AsideWrapper>
-          <Totals>
+          <Totals className="post-type-controls">
             <li
               onClick={() => this.selectPostType('all')}
             >
