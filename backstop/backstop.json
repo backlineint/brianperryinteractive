@@ -21,6 +21,7 @@
       "height": 1080
     }
   ],
+  "onReadyScript": "chromy/onReady.js",
   "scenarios": [
     {
       "label": "Homepage Elements",
@@ -87,6 +88,20 @@
       "readyEvent": null,
       "delay": 1500,
       "misMatchThreshold" : 0.1
+    },
+    {
+      "label": "Note Click",
+      "url": "http://localhost:8001",
+      "referenceUrl": "http://brianperryinteractive.com",
+      "hideSelectors": [],
+      "selectors": [
+        "document"
+      ],
+      "readyEvent": null,
+      "delay": 1500,
+      "misMatchThreshold" : 0.1,
+      "clickSelector": ".select-links",
+      "postInteractionWait": 1500
     }
   ],
   "paths": {

@@ -126,7 +126,7 @@ class IndexPage extends React.Component {
             >
               Posts ({this.props.data.posts.totalCount})
             </li>
-            <li
+            <li className="select-links"
               onClick={() => this.selectPostType('links')}
             >
               Links ({this.props.data.links.totalCount})
