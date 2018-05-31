@@ -1,0 +1,16 @@
+{
+  "name": "backstop",
+  "version": "1.0.0",
+  "description": "Visual regression testing with backstopjs",
+  "main": "index.js",
+  "scripts": {
+    "approve": "backstop approve",
+    "test": "backstop test",
+    "init": "backstop init"
+  },
+  "author": "Brian Perry",
+  "license": "MIT",
+  "dependencies": {
+    "backstopjs": "^3.2.16"
+  }
+}

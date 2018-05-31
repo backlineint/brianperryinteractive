@@ -1,0 +1,9 @@
+# Node dependencies
+node_modules
+
+# Only add the reference screenshots to the repo
+backstop_data/bitmaps_test
+
+# Ignore generated backstop reports
+backstop_data/ci_report
+backstop_data/html_report
