@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import Link from "gatsby-link";
 import styled from "styled-components";
 import { FaGlobe, FaCode, FaHome, FaMicrophone, FaGamepad, FaMagic } from 'react-icons/lib/fa';
 
@@ -60,7 +61,7 @@ export default () => (
             <FaHome size={40} />
           </FactIcon>
           <FactText>
-            I live in a cozy (aka small) house with my wife, son, two cats, and (currently) two fish.
+            I live in a cozy (aka small) house with my wife, son, two cats, and (currently) one fish. (Updated 6/22/18 - <Link to="/post/sometimes-a-recruiter-reminds-you-that-your-pet-died/">thanks recruiter</Link>)
           </FactText>
         </Fact>
         <Fact>
