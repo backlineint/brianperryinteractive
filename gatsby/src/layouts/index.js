@@ -102,7 +102,7 @@ export default ({ data, children }) => (
           <AsideBlock className="upcoming">
             <h3>Upcoming</h3>
             <ul>
-              <li><a href="https://www.design4drupal.org/">Design 4 Drupal</a>: June 27 - June 19, 2018 (<a href="https://www.design4drupal.org/sessions">Presenting</a>)</li>
+              <li><a href="https://www.drupalgovcon.org/">Drupal GovCon</a>: August 22 - 24, 2018 (Presenting: <a href="https://www.drupalgovcon.org/2018/program/sessions/can-we-figure-drupal-component-thing-out-already">Session 1</a>, <a href="https://www.drupalgovcon.org/2018/program/sessions/storybook-interactive-pattern-library-your-decoupled-applications">Session 2</a>)</li>
             </ul>
           </AsideBlock>
         </div>
