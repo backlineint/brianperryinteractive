@@ -1,5 +1,6 @@
 const path = require(`path`)
 const slugify = require('slugify')
+const createPaginatedPages = require('gatsby-paginate')
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators
@@ -22,20 +23,49 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
   return new Promise((resolve, reject) => {
     graphql(`
-      {
-        allNodePost {
-          edges {
-            node {
-              fields {
-                slug
-                type
+    {
+      allNodePost(sort: { fields: [created], order: DESC }) {
+        totalCount
+        edges {
+          node {
+            id
+            title
+            link
+            body {
+              value
+            }
+            relationships {
+              image {
+                localFile {
+                  childImageSharp {
+                    sizes(maxWidth: 1250) {
+                      base64
+                      aspectRatio
+                      src
+                      srcSet
+                      sizes
+                    }
+                  }
+                }
               }
             }
+            fields {
+              slug
+            }
+            post_type
+            created
           }
         }
       }
+    }
     `
     ).then(result => {
+      createPaginatedPages({
+        edges: result.data.allNodePost.edges,
+        createPage: createPage,
+        pageTemplate: "src/templates/index.js",
+        pageLength: 5,
+      });
       result.data.allNodePost.edges.forEach(({ node }) => {
         if (node.fields.type === 'link') {
           createPage({
