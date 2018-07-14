@@ -67,7 +67,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         pageLength: 5,
       });
       result.data.allNodePost.edges.forEach(({ node }) => {
-        if (node.fields.type === 'link') {
+        if (node.post_type === 'link') {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/link.js`),
@@ -76,7 +76,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             },
           })
         }
-        else if (node.fields.type === 'note') {
+        else if (node.post_type === 'note') {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/note.js`),

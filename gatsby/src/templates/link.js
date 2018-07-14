@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 import {formatDate} from '../utils/date';
 
+import PostImage from '../components/PostImage';
 import ContentGrid from '../components/ContentGrid';
 import ContentGridMain from '../components/ContentGridMain';
 
@@ -32,6 +33,11 @@ export default ({ data }) => {
           </Helmet>
           <h1><a href={post.link}>{post.title}</a></h1>
           <h3>— {formattedDate}</h3>
+          {
+            post.relationships.image
+              ? <PostImage sizes={post.relationships.image.localFile.childImageSharp.sizes}/>
+              : null
+          }
           <div dangerouslySetInnerHTML={{ __html: post.body.value }} />
         </LinkWrapper>
       </ContentGridMain>
@@ -46,6 +52,17 @@ export const query = graphql`
       link
       body {
         value
+      }
+      relationships {
+        image {
+          localFile {
+            childImageSharp {
+              sizes(maxWidth: 1250) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        }
       }
       created
     }
