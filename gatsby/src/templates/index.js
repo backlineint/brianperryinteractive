@@ -82,10 +82,10 @@ class IndexPage extends React.Component {
               <Link to="/">First</Link>
             </li>
             <li>
-              <PaginationLink test={first} url={previousUrl} text="Previous 5" />
+              <PaginationLink test={first} url={previousUrl} text="Next 5" />
             </li>
             <li>
-              <PaginationLink test={last} url={nextUrl} text="Next 5" />
+              <PaginationLink test={last} url={nextUrl} text="Previous 5" />
             </li>
           </Totals>
         </AsideWrapper>
