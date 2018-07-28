@@ -74,6 +74,9 @@ const Content = styled.div`
   @media all and (min-width: 1025px) {
     grid-column: 2 / span 4;
   }
+  iframe {
+    max-width: 100%;
+  }
 `;
 
 export default ({ data, children }) => (
