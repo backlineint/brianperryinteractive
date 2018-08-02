@@ -6,3 +6,6 @@ keys
 
 web/*
 !web/libraries/
+
+# database exports
+*.sql.gz
