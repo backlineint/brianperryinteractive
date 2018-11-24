@@ -102,13 +102,6 @@ export default ({ data, children }) => (
               <a href="http://brianperryinteractive.com/rss.xml" target="_blank"><FaRssSquare size={35} /></a>
             </div>
           </AsideBlock>
-          <AsideBlock className="upcoming">
-            <h3>Upcoming</h3>
-            <ul>
-              <li><a href="https://2018.badcamp.org/">BADCamp</a>: October 24 - 27, 2018 (<a href="https://2018.badcamp.org/session/component-based-theming-ui-patterns-and-pattern-lab">Presenting</a>)</li>
-              <li><a href="https://nedcamp.org/">NEDCamp</a>: November 16 - 17, 2018 (<a href="https://nedcamp.org/sessions/2018/overview-static-site-generators-drupalists">Presenting</a>)</li>
-            </ul>
-          </AsideBlock>
         </div>
       </AsideWrapper>
       <Content className="content">
