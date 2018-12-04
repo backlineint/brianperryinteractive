@@ -102,6 +102,13 @@ export default ({ data, children }) => (
               <a href="http://brianperryinteractive.com/rss.xml" target="_blank"><FaRssSquare size={35} /></a>
             </div>
           </AsideBlock>
+          <AsideBlock className="upcoming">
+            <h3>Upcoming</h3>
+            <ul>
+              <li><a href="https://midcamp.org">MidCamp</a>: March 20 - 23, 2019</li>
+              <li><a href="https://events.drupal.org/seattle2019">DrupalCon</a>: April 8 - 12, 2019 (<a href="https://events.drupal.org/seattle2019/sessions/external-design-system-practice">Presenting</a>)</li>
+            </ul>
+          </AsideBlock>
         </div>
       </AsideWrapper>
       <Content className="content">
