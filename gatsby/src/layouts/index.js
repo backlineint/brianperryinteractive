@@ -94,6 +94,7 @@ export default ({ data, children }) => (
             <p>Web Developer</p>
             <ul>
               <li><Link to="about">About</Link></li>
+              <li><a href="https://noti.st/brianperry">Talks</a></li>
             </ul>
             <div className="social">
               <a href="https://twitter.com/bricomedy" target="_blank"><FaTwitter size={35} /></a>
@@ -105,7 +106,6 @@ export default ({ data, children }) => (
           <AsideBlock className="upcoming">
             <h3>Upcoming</h3>
             <ul>
-                <li><a href="https://midcamp.org">MidCamp</a>: March 20 - 23, 2019 (<a href="https://www.midcamp.org/2019/training-proposal/google-analytics-and-google-tag-manager-101">Training</a>, <a href="https://www.midcamp.org/2019/topic-proposal/external-design-system-practice">Session 1</a>, <a href="https://www.midcamp.org/2019/topic-proposal/introduction-static-site-generators-drupalists-and-static-site-show-and-tell">Session 2</a>)</li>
                 <li><a href="https://events.drupal.org/seattle2019">DrupalCon</a>: April 8 - 12, 2019 (<a href="https://events.drupal.org/seattle2019/sessions/external-design-system-practice">Session 1</a>, <a href="https://events.drupal.org/seattle2019/sessions/introduction-static-site-generators-drupalists">Session 2</a>)</li>
             </ul>
           </AsideBlock>
