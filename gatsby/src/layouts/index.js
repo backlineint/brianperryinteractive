@@ -94,6 +94,7 @@ export default ({ data, children }) => (
             <p>Web Developer</p>
             <ul>
               <li><Link to="about">About</Link></li>
+              <li><Link to="now">Now</Link></li>
               <li><a href="https://noti.st/brianperry">Talks</a></li>
             </ul>
             <div className="social">
@@ -106,7 +107,7 @@ export default ({ data, children }) => (
           <AsideBlock className="upcoming">
             <h3>Upcoming</h3>
             <ul>
-                <li><a href="https://events.drupal.org/seattle2019">DrupalCon</a>: April 8 - 12, 2019 (<a href="https://events.drupal.org/seattle2019/sessions/external-design-system-practice">Session 1</a>, <a href="https://events.drupal.org/seattle2019/sessions/introduction-static-site-generators-drupalists">Session 2</a>)</li>
+                <li><a href="https://2019.tcdrupal.org/">Twin Cities Drupal Camp</a>: June 6 - 8, 2019 (<a href="https://2019.tcdrupal.org/session/external-design-systems-practice">Presenting</a>)</li>
             </ul>
           </AsideBlock>
         </div>

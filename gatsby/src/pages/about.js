@@ -53,7 +53,7 @@ export default () => (
             <FaCode size={40} />
           </FactIcon>
           <FactText>
-            I work for <a href="http://hs2solutions.com">HS2 solutions</a> as an Interactive Developer. I love component based  development with Drupal, Pattern Lab and React.
+            I work for <a href="http://bounteous.com">Bounteous</a> as a Lead Front End Developer. I love component based development with Drupal, Pattern Lab and React. I'm also increastingly interested in Decoupled Drupal and the JAMStack.
           </FactText>
         </Fact>
         <Fact>
@@ -61,7 +61,7 @@ export default () => (
             <FaHome size={40} />
           </FactIcon>
           <FactText>
-            I live in a cozy (aka small) house with my wife, son, two cats, and (currently) one fish. (Updated 6/22/18 - <Link to="/post/sometimes-a-recruiter-reminds-you-that-your-pet-died/">thanks recruiter</Link>)
+            I live in a cozy (aka small) house with my wife, son, two cats, and (currently) no fish. (Updated 5/12/19 - <Link to="/post/sometimes-a-recruiter-reminds-you-that-your-pet-died/">thanks recruiter</Link>)
           </FactText>
         </Fact>
         <Fact>
