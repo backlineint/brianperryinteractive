@@ -11,6 +11,6 @@
   "author": "Brian Perry",
   "license": "MIT",
   "dependencies": {
-    "backstopjs": "^3.2.16"
+    "backstopjs": "^3.9.13"
   }
 }
