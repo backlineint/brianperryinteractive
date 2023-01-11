@@ -21,7 +21,7 @@
     "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-drupal": "^2.0.35",
     "gatsby-source-filesystem": "^1.5.11",
-    "gatsby-transformer-remark": "^1.7.26",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^1.6.22",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
